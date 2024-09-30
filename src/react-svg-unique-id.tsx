@@ -9,7 +9,12 @@ export const resetSVGGlobalID = () => {
   SVG_GLOBAL_ID = 0
 }
 
-export class SVGUniqueID extends React.Component {
+interface SVGUniqueIDProps {
+  children: React.ReactNode;
+  prefix?: string;
+}
+
+export class SVGUniqueID extends React.Component<SVGUniqueIDProps> {
   private svgId: number = SVG_GLOBAL_ID++
 
   private lastLocalId: number = 0
@@ -25,8 +30,9 @@ export class SVGUniqueID extends React.Component {
     }
 
     const localId = this.localIdsMap.get(originalId)
+    const prefix = this.props.prefix || '';
 
-    return `___SVG_ID__${this.svgId}__${localId}___`
+    return `${prefix}___SVG_ID__${this.svgId}__${localId}___`
   }
 
   private fixPropWithUrl(prop: string): string {
