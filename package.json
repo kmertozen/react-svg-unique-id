@@ -1,6 +1,6 @@
 {
-  "name": "react-svg-unique-id",
-  "version": "1.0.2",
+  "name": "react-unique-svg-id",
+  "version": "1.0.0",
   "description": "",
   "keywords": [],
   "main": "dist/react-svg-unique-id.umd.js",
@@ -9,7 +9,7 @@
   "files": [
     "dist"
   ],
-  "author": "Tomasz Martyński <tomek@martynski.pl>",
+  "author": "kmertozen",
   "repository": {
     "type": "git",
     "url": "https://github.com/kmertozen/react-svg-unique-id"
