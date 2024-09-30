@@ -27,13 +27,13 @@ describe('test', () => {
     expect(originalRoot.findByType('use').props.xlinkHref).toBe('#prefix__bga')
     expect(originalRoot.findByType('path').props.fill).toBe('url(#prefix__bga)')
 
-    const wrapped = <SVGUniqueID>{original}</SVGUniqueID>
+    const wrapped = <SVGUniqueID prefix='test'>{original}</SVGUniqueID>
 
     const { root: wrappedRoot } = create(wrapped)
 
-    expect(wrappedRoot.findByType('linearGradient').props.id).toBe('___SVG_ID__0__0___')
-    expect(wrappedRoot.findByType('use').props.xlinkHref).toBe('#___SVG_ID__0__0___')
-    expect(wrappedRoot.findByType('path').props.fill).toBe('url(#___SVG_ID__0__0___)')
+    expect(wrappedRoot.findByType('linearGradient').props.id).toBe('test___SVG_ID__0__0___')
+    expect(wrappedRoot.findByType('use').props.xlinkHref).toBe('#test___SVG_ID__0__0___')
+    expect(wrappedRoot.findByType('path').props.fill).toBe('url(#test___SVG_ID__0__0___)')
   })
 
   it('should work with url like props', () => {
@@ -55,12 +55,12 @@ describe('test', () => {
     expect(originalRoot.findByType('use').props.xlinkHref).toBe('#l')
     expect(originalRoot.findByType('path').props.fill).toBe('url(#l)')
 
-    const wrapped = <SVGUniqueID>{original}</SVGUniqueID>
+    const wrapped = <SVGUniqueID prefix='test'>{original}</SVGUniqueID>
 
     const { root: wrappedRoot } = create(wrapped)
 
-    expect(wrappedRoot.findByType('linearGradient').props.id).toBe('___SVG_ID__0__0___')
-    expect(wrappedRoot.findByType('use').props.xlinkHref).toBe('#___SVG_ID__0__0___')
-    expect(wrappedRoot.findByType('path').props.fill).toBe('url(#___SVG_ID__0__0___)')
+    expect(wrappedRoot.findByType('linearGradient').props.id).toBe('test___SVG_ID__0__0___')
+    expect(wrappedRoot.findByType('use').props.xlinkHref).toBe('#test___SVG_ID__0__0___')
+    expect(wrappedRoot.findByType('path').props.fill).toBe('url(#test___SVG_ID__0__0___)')
   })
 })
